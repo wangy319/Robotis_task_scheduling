@@ -1,0 +1,7 @@
+C:\Frida\ThesisApplication\ThesisApplication\bin\x86\Debug\ThesisApplication.exe.config
+C:\Frida\ThesisApplication\ThesisApplication\bin\x86\Debug\ThesisApplication.exe
+C:\Frida\ThesisApplication\ThesisApplication\bin\x86\Debug\ThesisApplication.pdb
+C:\Frida\ThesisApplication\ThesisApplication\obj\x86\Debug\ThesisApplication.exe
+C:\Frida\ThesisApplication\ThesisApplication\obj\x86\Debug\ThesisApplication.pdb
+C:\Frida\ThesisApplication\ThesisApplication\bin\x86\Debug\Google.OrTools.dll
+C:\Frida\ThesisApplication\ThesisApplication\bin\x86\Debug\Google.OrTools.pdb

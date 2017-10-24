@@ -1,0 +1,27 @@
+Statistics for cpx_201_domf.fzn
+----------- Variables -----------
+Number of integer variables: 9507
+Number of boolean variables: 18702
+Total number of variables: 28209
+Number of arrays: 4710
+----------- Constraints -----------
+	bool_conj_reif: 4608
+	cumulative_fd_g12_cpx: 3
+	int_lin_eq_reif: 88
+	int_lin_ne_reif: 24
+	int_lin_le_reif: 13846
+	bool_clause: 64
+	int_eq: 50
+	array_bool_even: 3
+	int_lin_eq: 86
+	int_abs: 23
+	int_lin_ne: 4
+	array_bool_odd: 128
+	int_lin_le: 4787
+	array_var_int_element: 40
+	set_in_reif: 9
+	all_different_int: 2
+	array_int_element: 21
+	bool2int: 9238
+Total number of constraints: 33024
+Of which are reified: 56.24%

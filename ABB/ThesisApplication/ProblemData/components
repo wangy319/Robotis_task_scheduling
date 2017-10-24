@@ -1,0 +1,6 @@
+#First string is component name, following boolean values are Grip load and Suction load
+dcover 1 0
+antenna 1 0
+pwb 0 1
+shield 0 1
+lcd 0 1

@@ -1,0 +1,307 @@
+ 
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\begin{document}
+\section*{Model}
+\subsection*{Variables}
+\renewcommand{\arraystretch}{2}
+\begin{longtable}{c p{5cm}}
+$tasks$ & The number of tasks to schedule \\
+
+$machines$ & The number of machines available \\
+
+$tools$ & The number of tools available \\
+
+$cycles$ & The number of cycles performed \\
+
+$uniqueTasks$ & The number of unique tasks \\
+
+$trays$ & The number of trays available \\
+
+$fixtures$ & The number of fixtures available \\
+
+$components$ & The number of components available \\
+
+$nbrConcurrentGroups$ & The number of concurrent groups used \\
+
+$nbrOrderedGroups$ & The number of ordered groups used \\
+
+$T = \{1 \ldots tasks\}$ & The tasks \\
+
+$M = \{1 \ldots machines\}$ & The machines \\
+
+$To = \{1 \ldots tools\}$ & The tools \\
+
+$Tr = \{1 \ldots trays\}$ & The trays \\
+
+$F = \{1 \ldots fixtures\}$ & The fixtures \\
+
+$C = \{1 \ldots components\}$ & The components \\
+
+$Cy = \{1 \ldots cycles\}$ & The cycles \\
+
+$concurrentGroups = \{1 \ldots nbrConcurrentGroups\}$ & The concurrent groups\\
+
+$orderedGroups = \{1 \ldots nbrOrderedGroups\}$ & The ordered groups \\
+
+$d_t \in \{0 \ldots 2^{63}-1\}, \; t \in T$ & The duration of $t$ \\
+
+$s_t \in \{0 \ldots 2^{63}-1\}, \; t \in T$ & The start time of $t$ \\
+
+$e_t = s_t + d_t, \; t \in T$ & The end time of $t$ \\
+
+$m_t \in M, \quad t \in T$ & The machine $t$ uses \\
+
+$tray_t \in Tr, \; t \in T$ & The tray $t$ uses. If none is used $tray_t = 0$\\
+
+$fixture_t \in F, \; t \in T$ & The fixture $t$ uses. If none is used $fixture_t = 0$\\
+
+$cycle_t \in Cy, \; t \in T$ & The cycle $t$ is in \\
+
+$identicalTasks_k \subset T, \; k \in \{1 \ldots uniqueTasks\}$ & Set of tasks that perform the same operation, but on different components \\
+
+$componentsUsed_t \subset C, \; t \in T$ & The components used at $t$ \\
+
+$componentCreated_t \in C, \; t \in T$ & The component created at $t$ \\
+
+$mounting \subset T$ & Set of tasks that mounts a component \\
+
+$taking \subset T$ & Set of tasks that takes a component \\
+
+$moving \subset T$ & Set of tasks that moves a component somewhere \\
+
+$putting_c \subset putting, \; c \in C$ & Set of tasks that puts component $c$ somewhere \\
+
+$mounting_c \subset mounting, \; c \in C$ & Set of tasks that mounts component $c$\\
+
+$taking_c \subset taking, \; c \in C$ & Set of tasks that takes component $c$\\
+
+$moving_c \subset moving, \; c \in C$ & Set of tasks that moves component $c$ somewhere \\
+
+$concurrentTasks_k \subset T, \; k \in concurrentGroups$ & Set of tasks needing concurrent execution \\
+
+$order_k \subset T, \; k \in orderedGroups$ & Array of tasks needed to be performed in a certain order on a single machine \\
+
+$toolNeeded_t \in To, \; t \in T$ & The tool needed for $t$ \\
+
+$changesTool \subset T$ & A set of tasks that perform tool changes\\
+
+$changesToTool_t \in To, \; t \in changesTool$ & The tool that a task changes to\\
+
+$defaultTool_m \in To, \; m \in M$ & The tool set to each machine at the start. \\
+
+$time_{t1,t2} \in \{0 \ldots 2^{63}-1\}, \; t1,t2 \in T$ & The time it takes to move from having performed $t1$ to be ready to perform $t2$ \\
+
+$usingMachine_t \in M, \; t \in T$ & The machine $t$ uses \\
+
+$pred_t \in T, \; t \in T$ & The task that is the predecessor to $t$ \\
+
+$moveS_t \in \{0 \ldots 2^{63}-1\}, \; t \in T$ & The start time for the move from $pred_t$ to $t$ \\
+
+$moveD_t = time_{pred_t, t}, \; t \in T$ & The duration for the move from $pred_t$ to $t$ \\
+
+$moveE_t = moveS_t + moveD_t, \; t \in T$ & The end time for the move from $pred_t$ to $t$ \\
+
+$End = \{0 \ldots D\},\; D = \sum\{d_t:\forall t \in T\}$ & Marks the end of the schedule, i.e. makespan. The variable that is minimized.\\
+
+\end{longtable}
+
+\newpage
+
+\subsection*{Predicates}
+\begin{longtable}{c p{5cm}}
+
+$noOverlap(t_1, t_2), \; t_1,t_2 \in T $ & \multirow{2}{5cm}{$t_1$ does not overlap $t_2$}\\
+$\land \; noOverlap2(s_{t_1}, e_{t_1}, s_{t_2}, e_{t_2})$ \\ 
+\hline
+
+$noOverlap2(startTime_{1}, endTime_{1}, startTime_{2}, endTime_{2}),$ & \multirow{5}{5cm}{The time interval $startTime_{1}$ to $endTime_{1}$ is not overlapped by the interval $startTime_{2}$ to $endTime_{2}$} \\
+$startTime_{1}, startTime_{2}, endTime_{1}, endTime_{2}$ \\
+$\in \{s_{t}, d_{t}, e_{t}, moveS_{t}, moveD_{t}, moveE_{t}|\forall t \in T\}$ \\
+$\land \; endTime_{1} \leq startTime_{2} \lor startTime_{1} \geq endTime_{2}$\\
+
+\hline
+
+$t_1 \prec t_2, \; t_1,t_2 \in T$ & \multirow{2}{5cm}{$t_1$ precedes $t_2$, i.e.\ $t_1$ has to end before $t_2$ starts}\\
+$\land \; e_{t_1} \leq moveS_{t_2} \land pred_{t_1} \neq t_2$ \\
+
+\hline
+
+$task1PredecessorOfTask2(t_1, t_2), \; t_1,t_2 \in T$ &  \multirow{2}{5cm}{$t_1$ is the predecessor of $t_2$, i.e.\ $t_2$ comes directly after $t_1$ on the same machine, no other task can com inbetween}\\
+$\land \; pred_{t_2} = t_1 \land pred_{t_1} \neq t_2$\\
+
+\end{longtable}
+
+\subsection*{Constraints}
+\begin{longtable}{c p{5cm}}
+$End = max(\{e_t:\forall t \in T\})$ & The end is where the last task ends\\
+
+\hline
+
+%Precedence
+$\forall c \in C($ & \multirow{4}{5cm}{If a set of tasks on a component involves a mount task and a put task, the put task has to come before the mount task} \\
+$\forall mountTask \in mounting_c($\\
+$\forall putTask \in putting_c($\\
+$putTask \prec mountTask)))$\\
+
+\hline
+
+$\forall c \in \{c:c \in C \land putting_c = \emptyset \land moving_c = \emptyset\}($ & \multirow{4}{5cm}{If a set of tasks on a component involves a mount and a take task, but no move tasks or put tasks, the take task is the predecessor of the mount task} \\
+$\forall mountTask \in mounting_c($\\
+$\forall takeTask \in taking_c($\\
+$task1PredecessorOfTask2(takeTask, mountTask))))$\\
+
+\hline
+
+$\forall c \in \{c:c \in C \land putting_c = \emptyset \land moving_c \neq \emptyset\}($ & \multirow{10}{5cm}{If a set of tasks on a component involves a mount task, a take task, and one or several moving tasks, but no put task, the take task has to come before the mount task, and the move tasks come in between} \\
+$\forall mountTask \in mounting_c($\\
+$\forall takeTask in taking_c($\\
+$takeTask \prec mountTask \; \land$\\
+$pred_{mountTask} \neq takeTask \; \land$\\
+$usingMachine_{takeTask} = usingMachine_{mountTask} \; \land$\\
+$\forall moveTask \in moving_c($\\
+$takeTask \prec moveTask \land moveTask \prec mountTask) \; \land$\\
+$\forall t \in \{t:t \in T\setminus\{mountTask, takeTask\} \land t \not \in moving\}($\\
+$usingMachine_{takeTask} = usingMachine_{mountTask}$\\
+$\to noOverlap2(s_t, e_t, s_{takeTask}, e_{mountTask})))))$\\
+
+\hline
+
+$\forall c \in C($ & \multirow{4}{5cm}{If a set of tasks on a component involves a put task in a tray and a take task, the take task ha to be the predecessor of the put task}\\
+$\forall putTask \in \{task:task \in putting_c \land tray_{putTask} = 0\}($\\
+$\forall takeTask \in taking_c($\\
+$task1PredecessorOfTask2(takeTask, putTask))))$\\
+
+\hline
+
+$\forall group \in concurrentGroups($ & \multirow{5}{5cm}{Concurrent groups}\\
+$\forall t_1 \in concurrentTasks_{group}($\\
+$\forall t_2 \in concurrentTasks_{group} \setminus \{t_1\}($\\
+$s_{t_1} = s_{t_2} \land usingMachine_{t_{1}} \neq usingMachine_{t_2}$\\
+$\land \; pred_{t_2} \neq t_1 \land pred_{t_1} \neq t_2)))$ & \\
+
+\hline
+
+$\forall t_1 \in \{t:t \in T \land componentCreated_t > 0\}($ & \multirow{3}{5cm}{Components cannot be used before they are created}\\
+$\forall t_2 \in \{t:t \in T \land componentCreated_{t_1} \in componentsUsed_{t_2}\}($ & \\
+$t_1 \prec t_2))$ & \\
+
+\hline
+
+$\forall group \in orderedGroups($ & \multirow{2}{5cm}{Order FIXA}\\
+$)$ & \\
+
+\hline
+
+$\forall f \in fixtures($ & \multirow{4}{5cm}{Two tasks on the same fixture can't overlap}\\
+$\forall t_1 \in \{t:t \in T \land fixture_t = f\}($ \\
+$\forall t_2 \in \{t:t \in T \land fixture_t = f\} \setminus \{t_1\}($\\
+$noOverlap(t_1, t_2))))$ & \\
+
+\hline
+
+$\forall tr \in trays($ & \multirow{4}{5cm}{Two tasks on the same tray can't overlap}\\
+$\forall t_1 \in \{t:t \in T \land tray_t = tr\}($ \\
+$\forall t_2 \in \{t:t \in T \land tray_t = tr\} \setminus \{t_1\}($\\
+$noOverlap(t_1, t_2))))$ & \\
+
+\hline
+
+$\forall t_1 \in T($ & \multirow{3}{5cm}{Two tasks using the same machine cannot overlap}\\
+$\forall t_2 \in T \setminus \{t_1\}($\\
+$usingMachine_{t_1} = usingMachine_{t_2} \to noOverlap(t_1, t_2)))$ & \\
+
+\hline
+
+$cumulative(s, d, [1:t \in T], nbrMachines)$ & There can only be as many tasks performed simultaneously as there are machines\\
+
+\hline
+
+$\forall t \in T(pred_t \neq t)$ & A task cannot be a predecessor to itself\\
+
+\hline
+
+$\forall t \in T(s_t \geq moveE_{t})$ & A task can only start after the move to it \\
+
+\hline
+
+$\forall t \in T(pred_t \neq 0 \to pred_t \prec t)$ & Apart from the first tasks, a task has to start after its predecessor\\
+
+\hline
+
+$\forall t \in T(pred_t \neq 0 \to pred_{pred_t} \neq t)$ & A task cannot be a predecessor to its predecessor\\
+
+\hline
+
+$alldifferent\_except\_0(pred), \; pred \in T$ & No two tasks can have the same predecessor. The exception is the start tasks. Since there are multiple machines, there can be multiple start tasks\\
+
+\hline
+
+$\forall t_1 \in T(\forall t_2 \in T \setminus \{t_1\}($ & \multirow{2}{5cm}{Tasks cannot have the same predecessors, except for start task which have 0 as predecessor. This together with $alldifferent\_except\_0$ helps set that constraint. But since the solver first determines on what machine a task will be performed, this constraint speeds up the solving process since the constraint is based on what machine is used}\\
+$usingMachine_{t_1} = usingMachine_{t_2} \to pred_{t_1} \neq pred_{t_2}))$ \\
+
+\hline
+
+$\forall t \in T(pred_t = 0 \to moveS_t = 0)$ & The tasks that have predecessor 0 starts at time 0\\
+
+\hline
+
+$\forall t_1 \in T(\forall t_2 \in T \setminus \{t_1\}($ & \multirow{2}{5cm}{Two tasks using different machines cannot be each other predecessors}\\
+$usingMachine_{t_1} \neq usingMachine_{t_2} \to pred_{t_1} \neq t_2 \land pred_{t_2} \neq t_1))$ \\
+
+\hline
+
+$\forall t \in T(pred_t \neq 0 \to usingMachine_t = usingMachine_{pred_t})$ & A task and its predecessor has to use the same machine \\
+
+\hline
+
+$member(pred, 0)$ & There has to be at least one starting task\\
+
+\hline
+
+$\forall t \in T(pred_t \neq 0 \to \forall t_2 \in T($ & \multirow{2}{5cm}{No other task on the same machine can come between $t$ and its predecessor $pred_{t}$, i.e. no other task can overlap the timeslot inbetween}\\
+$usingMachine_{t_2} = usingMachine_t \to noOverlap2(s_{t_2}, e_{t_2}, e_{pred_t}, s_t)))$\\
+
+\hline
+
+$\forall t \in T(moveD_t = times_{pred_t, t})$ & Assigns the duration for the move between tasks\\
+
+\hline
+
+$\forall t_1 \in taking, \forall t_2 \in changesTool(pred_{t_2} \neq t_1)$ & A tool-change cannot happen right after a take task, i.e. a tool-change cannot have a take task as it predecessor\\
+
+\hline
+
+$\forall t_1 \in \{t:t \in T \land toolsNeeded_{t_1} \neq 0\}($ & \multirow{5}{5cm}{Tasks needing a tool has to use the same machine as a task switching to that tool}\\
+$\exists t_2 \in \{t:t \in changesTool \land changesToTool_t = toolsNeeded_{t_1}\}($\\
+$usingMachine_{t_1} = usignMachine_{t_2} \land t_2 \prec t_1) \; \lor$\\
+$\exists m \in \{m:m \in M \land defaultTool_{m} = toolsNeeded_{t_1}\}($\\
+$usingMachine_{t_1} = m \land s_{t_1} \geq 0))$ \\
+
+\hline
+
+$\forall t_1 \in \{t:t \in T \land toolsNeeded_t \neq 0 \land$ & \multirow{4}{5cm}{A task that needs a tool needs to happen before the change to another tool on the machine it is using}\\
+$ toolsChangedTo \setminus \{toolsNeeded_t\} \neq \emptyset\}($\\
+$\exists t_2 \in \{t:t \in changesTool \land changesToTool_t \neq toolsNeeded_{t_1}\}($\\
+$usingMachine_{t_1} = usingMachine_{t_2} \to t_1 \prec t_2))$\\
+
+\hline
+
+$\forall it \in identicalTasks($ & \multirow{4}{5cm}{Identical tasks must come in the order of their cycles.} \\
+$\forall t_1 \in it($\\
+$\forall t_2 \in \{t:t \in it \land cycleNbr_{t_1} < cycleNbr_{t_2}\}($\\
+$t_1 \prec t_2)))$ \\
+
+\hline
+
+\end{longtable}
+
+\end{document}

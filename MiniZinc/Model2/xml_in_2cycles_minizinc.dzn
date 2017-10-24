@@ -1,0 +1,137 @@
+nbrTasks = 48;
+nbrMachines = 2;
+nbrTools = 2;
+names = ["Change to regular-grabber tool1","Mount ring on top-button, mount1","Mount button on top","Change to bottom-grabber tool","Put bottom-switch on table","Take button1","Lift top-button, support","Lift top-button, hold top-button","Take bottom-switch","Angle top-button1","Take switch","Mount switch in bottom","Take top","Put bottom in fixture1","Change to regular-grabber tool","Mount ring on top-button, hold1","Mount button on top1","Put top in fixture","Put bottom in fixture","Take top-button-ring from top-tray1","Lift top-button, support1","Mount ring on top-button, mount","Take top-button from fixture","Take bottom1","Put top-button-ring in top-tray1","Take top-button-ring from top-tray","Fixate top-button-ring","Take switch1","Fixate top-button-ring1","Put bottom-switch on table1","Take ring","Mount top-button-ring on bottom-switch","Turn top-button1","Lift top-button, hold top-button1","Take button","Change to bottom-grabber tool1","Take ring1","Angle top-button","Take top-button from fixture1","Turn top-button","Put top in fixture1","Take bottom-switch1","Take bottom","Mount top-button-ring on bottom-switch1","Mount switch in bottom1","Put top-button-ring in top-tray","Take top1","Mount ring on top-button, hold"];
+
+duration = [60,260,25,60,5,5,5,5,0,5,5,15,5,10,60,260,25,10,10,5,5,260,5,5,5,5,15,5,15,5,10,15,20,5,5,60,10,5,5,20,10,0,5,15,15,5,5,260];
+
+% Trays
+% 1: Ring tray
+% 2: Switch tray
+% 3: Button tray
+% 4: Bottom tray
+% 5: Top tray
+tray = [0,0,0,0,0,3,0,0,0,0,2,0,5,0,0,0,0,0,0,5,0,0,0,4,5,5,0,2,0,0,1,0,0,0,3,0,1,0,0,0,0,0,4,0,0,5,5,0];
+
+% Fixtures
+% 1: Front fixture
+fixture = [0,0,1,0,0,0,0,0,1,1,0,1,0,1,0,0,1,1,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,1,0,0,0];
+
+% Components
+% 1: Top
+% 2: Switch
+% 3: Top1
+% 4: Top-Button1
+% 5: Ring
+% 6: Top-Button-Ring1
+% 7: Top-Button
+% 8: Ring1
+% 9: Switch1
+% 10: Complete1
+% 11: Bottom-Switch1
+% 12: Bottom
+% 13: Button
+% 14: Bottom-Switch
+% 15: Top-Button-Ring
+% 16: Bottom1
+% 17: Button1
+% 18: Complete
+component = [|
+0,8,1,0,14,17,7,7,14,4,2,12,1,16,0,4,3,1,12,6,4,5,7,16,6,15,15,9,6,11,5,15,4,4,13,0,8,7,4,7,3,11,12,6,16,15,3,7|
+0,0,13,0,0,0,0,0,0,0,0,2,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,0,0,0,0,0,0,0,0,0,0,0,11,9,0,0,0|];
+nbrComponents = 18;
+maxComponentsUsed = 2;
+
+component_created = [0,6,7,0,0,0,0,0,0,0,0,14,0,0,0,6,4,0,0,0,0,15,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,0,10,11,0,0,15];
+
+% putting a component
+putting = [0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0];
+
+% mounting a component
+mounting = [0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1];
+
+% taking a component
+taking = [0,0,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,1,0,0,1,1,0,1,0,1,0,0,1,0,0,0,1,0,1,0,1,0,0,1,1,0,0,0,1,0];
+
+% moving a component
+moving = [0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0];
+
+concurrentTasks = [|
+8,7|
+48,22|
+34,21|
+16,2|];
+maxConcurrentTasks = 2;
+nbrConcurrentGroups = 4;
+
+order = [|
+23,38,8,40,48,27,46|
+39,10,34,33,16,29,25|];
+maxOrderedLength = 7;
+orderedGroups = 2;
+
+resources = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+
+% Coords fromX,fromY,toX,toY
+coords = [|
+7,9,7,9|
+8,12,8,12|
+7,9,7,9|
+8,2,8,2|
+8,12,8,12|
+10,2,10,2|
+5,2,5,2|
+8,2,7,9|
+8,2,7,9|
+8,2,8,2|
+8,2,8,2|
+12,5,12,5|
+8,2,8,2|
+4,9,4,9|
+8,2,8,2|
+8,12,8,12|
+7,9,7,9|
+8,2,8,2|
+8,2,8,2|
+8,2,8,2|
+4,9,4,9|
+8,2,7,9|
+7,9,7,9|
+8,2,8,2|
+11,9,11,9|
+4,9,4,9|
+4,9,4,9|
+9,2,9,2|
+12,5,12,5|
+9,2,9,2|
+10,2,10,2|
+14,9,14,9|
+10,2,10,2|
+7,9,7,9|
+8,2,7,9|
+5,2,5,2|
+8,12,8,12|
+14,9,14,9|
+8,2,8,2|
+8,2,8,2|
+7,9,7,9|
+8,2,8,2|
+8,2,8,2|
+11,9,11,9|
+10,2,10,2|
+8,2,8,2|
+4,9,4,9|
+4,9,4,9|
+7,9,7,9|];
+
+% Tools
+% 1: tool1
+% 2: tool2
+tools_needed = [0,1,1,0,2,1,0,1,2,1,2,2,1,2,0,1,1,1,2,1,0,1,1,2,1,1,1,2,1,2,1,1,1,1,1,0,1,1,1,1,1,2,2,1,2,1,1,1];
+
+changes_tool = [|
+4,15,36,1|
+2,1,2,1|];
+tool_changes = 4;
+
+default_tool = [1,1];

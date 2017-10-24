@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly>
+
+	<Tray id="Comp Tray"/>
+
+	<Output id="Output"/>
+
+	<Component id="Comp"/>
+
+	<Tool id="tool1"/>
+	<Tool id="tool2"/>
+
+	<Machine id="m1"/>
+
+	<Task id="Take comp" Duration="5">
+		<Tray id="Comp Tray"/>
+		<Component id="Comp"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+
+	<Task id="Put comp" Duration="10">
+		<Output id="Output"/>
+		<Component id="Comp"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Putting"/>
+	</Task>
+
+	<ToolChangeDurations>
+		<Change FromToolId="tool1" ToToolId="tool2" Duration="60"/>
+		<Change FromToolId="tool2" ToToolId="tool1" Duration="60"/>
+	</ToolChangeDurations>
+
+</Assembly>

@@ -1,0 +1,36 @@
+#Reference assembly
+#Route 1
+1 17 6 30 34 46 56 63 65 47 10 31 69 50 71 
+
+# Pick LCD tray 3
+# Pick SHIELD tray 1 
+# Photo LCD camera 1
+# Photo SHIELD Camera 3
+# Place SHIELD Fixture 1 (Behind back)
+# Tapp SHIELD in place
+# Peel tape 1
+# Peel tape 2
+# Place LCD
+# Pick PWB tray 2
+# Photo PWB camera 2
+# Airgun PWB
+# Place PWB
+
+#Route 2
+2 23 19 48 58 49 59 57 60 68 70 72
+
+# Pick DCOVER tray 5
+# Pick ANTENNA tray 4
+# Photo ANTENNA camera 4
+# Place DCOVER
+# Peel camera tape
+# Place ANTENNA
+# Tap ANTENNA in place
+# Tap LCD in place
+# Move LCD/SHIELD to output
+# Tap PWB in place
+# Move DCOVER/ANTENNA/PWB to output
+
+
+#Route 3
+0 3 4 5 7 8 9 11 12 13 14 15 16 18 20 21 22 24 25 26 27 28 29 32 33 35 36 37 38 39 40 41 42 43 44 45 51 52 53 54 55 56 57 61 62 64 66 67 73

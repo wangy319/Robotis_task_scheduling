@@ -1,0 +1,24 @@
+Statistics for cpx_16_predf.fzn
+----------- Variables -----------
+Number of integer variables: 28736
+Number of boolean variables: 57284
+Total number of variables: 86020
+Number of arrays: 31
+----------- Constraints -----------
+	bool_conj_reif: 14301
+	int_plus: 2
+	cumulative_fd_g12_cpx: 7
+	int_lin_eq_reif: 137
+	int_lin_ne_reif: 25
+	bool_clause: 50
+	int_lin_le_reif: 42863
+	int_lin_eq: 135
+	int_abs: 23
+	int_lin_ne: 273
+	int_lin_le: 14435
+	array_var_int_element: 90
+	all_different_int: 3
+	array_int_element: 21
+	bool2int: 28582
+Total number of constraints: 100947
+Of which are reified: 56.78%

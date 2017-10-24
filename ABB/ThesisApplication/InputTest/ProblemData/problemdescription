@@ -1,0 +1,12 @@
+#Instance file for the Robot optimization program
+components; 5
+fixtures; 2
+
+componentDescriptions; C:\\SVN\\ThesisApplication\\ProblemData\\components
+#assemblyGraph $Path_To_File$
+
+distances1; C:\\SVN\\ThesisApplication\\TimeData\\distanceMatrix1.csv
+distances2; C:\\SVN\\ThesisApplication\\TimeData\\distanceMatrix2.csv
+operations1; C:\\SVN\\ThesisApplication\\TimeData\\operations1.csv
+operations2; C:\\SVN\\ThesisApplication\\TimeData\\operations2.csv
+

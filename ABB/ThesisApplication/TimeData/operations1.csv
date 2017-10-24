@@ -1,0 +1,16 @@
+Pick PWB;253
+Pick Shield ;254
+Pick LCD;318
+Pick Antenna;268
+Pick D-Cover;-
+Picture Cam 1;290
+Picture Cam 5;537
+Picture Cam 3;287
+Picture Cam 4;288
+Picture Cam 2;-
+Place at Fixture 1;792
+Place at Fixture 2;585
+#Place at Fixture 1;100
+#Place at Fixture 2;100
+Spray air gun;418
+Output;-

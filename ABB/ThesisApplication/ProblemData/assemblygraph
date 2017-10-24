@@ -1,0 +1,26 @@
+#Assmebly graph; Each new level is within { }
+
+#Generic name of assembly
+root = generic_name
+
+{root}
+	{subAss1}
+		{Comp1}
+		{Comp2}
+	{subAss2}
+		{subAss3}
+			{Comp5}
+			{Comp4}
+		{Comp3}
+
+
+
+		{Comp2}
+	{subAss1}
+		{Comp1}	
+{root}
+			{Comp5}
+		{subAss3}
+			{Comp4}
+	{subAss2}
+		{Comp3}

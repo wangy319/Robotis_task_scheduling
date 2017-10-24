@@ -1,0 +1,25 @@
+Statistics for choco_201_predf_domf.fzn
+----------- Variables -----------
+Number of integer variables: 246
+Number of boolean variables: 27
+Total number of variables: 273
+Number of arrays: 57
+----------- Constraints -----------
+	array_bool_or: 9
+	int_lin_eq_reif: 9
+	globalCardinalityChoco: 2
+	bool_clause: 9
+	int_eq: 36
+	int_lin_eq: 85
+	int_abs: 23
+	int_lin_ne: 4
+	int_lin_le: 170
+	array_var_int_element: 29
+	int_eq_reif: 9
+	set_in_reif: 9
+	alldifferentChoco: 1
+	array_int_element: 21
+	cumulativeChoco: 8
+	circuitChoco: 1
+Total number of constraints: 425
+Of which are reified: 6.35%

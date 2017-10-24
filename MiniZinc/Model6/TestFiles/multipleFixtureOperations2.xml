@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly xmlns="http://exjobb18.cs.lth.se"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://exjobb18.cs.lth.se http://exjobb18.cs.lth.se/xml_format_in.xsd">
+
+	<Cycles nbr="1"/>
+
+	<Output id="Output"/>
+
+	<Tray id="top-tray"/>
+	<Tray id="Button tray"/>
+	<Tray id="Ring tray"/>
+	<Tray id="Sticker tray"/>
+
+	<Fixture id="Front fixture"/>
+
+	<Component id="Top"/>
+	<Component id="Button"/>
+	<Component id="Ring"/>
+	<Component id="Sticker"/>
+	<Component id="Top-Button"/>
+	<Component id="Top-Button-Ring"/>
+	<Component id="Top-Button-Ring-Sticker"/>
+
+	<Subcomponent id="Top-Button">
+		<Component id="Top"/>
+		<Component id="Button"/>
+	</Subcomponent>
+	<Subcomponent id="Top-Button-Ring">
+		<Component id="Top-Button"/>
+		<Component id="Ring"/>
+	</Subcomponent>
+	<Subcomponent id="Top-Button-Ring-Sticker">
+		<Component id="Top-Button-Ring"/>
+		<Component id="Sticker"/>
+	</Subcomponent>
+
+
+	<Tool id="tool1"/>
+	<Tool id="tool2"/>
+
+	<Machine id="m1"/>
+	<Machine id="m2"/>
+
+	<Task id="Take top" Duration="5">
+		<Tray id="top-tray"/>
+		<Component id="Top"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Put top in fixture" Duration="10">
+		<Fixture id="Front fixture"/>
+		<Component id="Top"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Putting"/>
+	</Task>
+	<Task id="Take button" Duration="5">
+		<Tray id="Button tray"/>
+		<Component id="Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Mount button on top" Duration="25">
+		<Fixture id="Front fixture"/>
+		<Component id="Top"/>
+		<Component id="Button"/>
+		<ComponentCreated id="Top-Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+	</Task>
+	<Task id="Take ring" Duration="10">
+		<Tray id="Ring tray"/>
+		<Component id="Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Mount ring on top-button" Duration="260">
+		<Component id="Top-Button"/>
+		<Component id="Ring"/>
+		<ComponentCreated id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+		<Fixture id="Front fixture"/>
+	</Task>
+	<Task id="Take top-button-ring" Duration="5">
+		<Component id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+		<Fixture id="Front fixture"/>
+	</Task>
+	<Task id="Do some move with top-button-ring" Duration="5">
+		<Component id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Moving"/>
+	</Task>
+	<Task id="Put top-button-ring in fixture" Duration="5">
+		<Component id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Putting"/>
+		<Fixture id="Front fixture"/>
+	</Task>
+	<Task id="Take sticker" Duration="10">
+		<Tray id="Sticker tray"/>
+		<Component id="Sticker"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Mount sticker on top-button-ring" Duration="260">
+		<Component id="Sticker"/>
+		<Component id="Top-Button-Ring"/>
+		<ComponentCreated id="Top-Button-Ring-Sticker"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+		<Fixture id="Front fixture"/>
+	</Task>
+	<Task id="Take top-button-ring-sticker" Duration="5">
+		<Component id="Top-Button-Ring-Sticker"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+		<Fixture id="Front fixture"/>
+	</Task>
+	<Task id="Put top-button-ring-sticker on table" Duration="5">
+		<Component id="Top-Button-Ring-Sticker"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Putting"/>
+		<Output id="Output"/>
+	</Task>
+
+	<OrderedGroup>
+		<Task id="Take top-button-ring"/>
+		<Task id="Do some move with top-button-ring"/>
+		<Task id="Put top-button-ring in fixture"/>
+	</OrderedGroup>
+
+	<ToolChangeDurations>
+		<Change FromToolId="tool1" ToToolId="tool2" Duration="60"/>
+		<Change FromToolId="tool2" ToToolId="tool1" Duration="60"/>
+	</ToolChangeDurations>
+
+</Assembly>

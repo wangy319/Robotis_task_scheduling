@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly>
+
+	<Cycles nbr="1"/>
+
+	<Tool id="grip"/>
+	<Tool id="suction"/>
+
+	<Component id="dcover"/>
+	<Component id="antenna"/>
+	<Component id="pwb"/>
+	<Component id="shield"/>
+	<Component id="lcd"/>
+	<Component id="lcd-shield"/>
+	<Component id="dcover-antenna-pwb"/>
+
+	<Tray id="tray1"/>
+	<Tray id="tray2"/>
+	<Tray id="tray3"/>
+	<Tray id="tray4"/>
+	<Tray id="tray5"/>
+
+	<Fixture id="fixture1"/>
+	<Fixture id="fixture2"/>
+
+	<Machine id="m1"/>
+	<Machine id="m2"/>
+
+	<Task id="Take dcover" Duration="">
+		<Tray id="tray3"/>
+		<Component id="dcover"/>
+		<ToolNeeded id="suction"/>
+		<Action id="Taking"/>
+	</Task>
+
+	<Task id="Put dcover in fixture" Duration="">
+		<Fixture id="fixture1"/>
+		<Component id="dcover"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Tap dcover in fixture" Duration="">
+		<Fixture id="fixture1"/>
+		<Component id="dcover"/>
+	</Task>
+
+	<Task id="Take pwb" Duration="">
+		<Tray id="tray4"/>
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Take antenna" Duration="">
+		<Tray id="tray1"/>
+		<Component id="antenna"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Photo pwb" Duration="">
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Take pwb" Duration="">
+		<Tray id="tray4"/>
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+</Assembly>

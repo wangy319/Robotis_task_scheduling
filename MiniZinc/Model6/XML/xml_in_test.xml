@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly xmlns="http://exjobb18.cs.lth.se"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://exjobb18.cs.lth.se http://exjobb18.cs.lth.se/xml_format_in.xsd">
+
+	<Output id="Output"/>
+
+	<Tray id="top-tray"/>
+	<Tray id="Button tray"/>
+	<Tray id="Ring tray"/>
+	<Tray id="Bottom tray"/>
+	<Tray id="Switch tray"/>
+
+	<Fixture id="Front fixture"/>
+
+	<Component id="Top"/>
+	<Component id="Button"/>
+	<Component id="Ring"/>
+	<Component id="Bottom"/>
+	<Component id="Switch"/>
+	<Component id="Top-Button"/>
+	<Component id="Top-Button-Ring"/>
+	<Component id="Bottom-Switch"/>
+	<Component id="Complete"/>
+
+	<Subcomponents id="Top-Button">
+		<Component id="Top"/>
+		<Component id="Button"/>
+	</Subcomponents>
+	<Subcomponents id="Top-Button-Ring">
+		<Component id="Top-Button"/>
+		<Component id="Ring"/>
+	</Subcomponents>
+	<Subcomponents id="Bottom-Switch">
+		<Component id="Bottom"/>
+		<Component id="Switch"/>
+	</Subcomponents>
+	<Subcomponents id="Complete">
+		<Component id="Top-Button-Ring"/>
+		<Component id="Bottom-Switch"/>
+	</Subcomponents>
+
+	<Tool id="tool1"/>
+	<Tool id="tool2"/>
+
+	<Machine id="m1"/>
+	<Machine id="m2"/>
+
+	<Task id="Take top" Duration="5">
+		<Tray id="top-tray"/>
+		<Component id="Top"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Put top in fixture" Duration="10">
+		<Fixture id="Front fixture"/>
+		<Component id="Top"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Putting"/>
+	</Task>
+	<Task id="Take button" Duration="5">
+		<Tray id="Button tray"/>
+		<Component id="Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Mount button on top" Duration="25">
+		<Fixture id="Front fixture"/>
+		<Component id="Top"/>
+		<Component id="Button"/>
+		<ComponentCreated id="Top-Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+	</Task>
+<!--	<Task id="Grab top-button from fixture" Duration="5">
+		<Fixture id="Front fixture"/>
+		<Component id="Top-Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>-->
+	<Task id="Angle top-button" Duration="10">
+		<Fixture id="Front fixture"/>
+		<Component id="Top-Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Moving"/>
+	</Task>
+	<Task id="Lift top-button, hold top-button" Duration="5">
+		<Fixture id="Front fixture"/>
+		<Component id="Top-Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Lift top-button, support" Duration="5">
+		<Component id="Top-Button"/>
+		<Action id="Moving"/>
+	</Task>
+	<Task id="Turn top-button" Duration="20">
+		<Component id="Top-Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Moving"/>
+	</Task>
+	<Task id="Take ring" Duration="10">
+		<Tray id="Ring tray"/>
+		<Component id="Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Mount ring on top-button, hold" Duration="260">
+		<Component id="Top-Button"/>
+		<ComponentCreated id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+	</Task>
+	<Task id="Mount ring on top-button, mount" Duration="260">
+		<Component id="Ring"/>
+		<ComponentCreated id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+	</Task>
+	<Task id="Fixate top-button-ring" Duration="15">
+		<Fixture id="Front fixture"/>
+		<Component id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Moving"/>
+	</Task>
+	<Task id="Put top-button-ring in top-tray" Duration="5">
+		<Tray id="top-tray"/>
+		<Component id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Putting"/>
+	</Task>
+
+	<Task id="Take top-button-ring from top-tray" Duration="5">
+		<Tray id="top-tray"/>
+		<Component id="Top-Button-Ring"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Take bottom" Duration="5">
+		<Tray id="Bottom tray"/>
+		<Component id="Bottom"/>
+		<ToolNeeded id="tool2"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Put bottom in fixture" Duration="10">
+		<Fixture id="Front fixture"/>
+		<Component id="Bottom"/>
+		<ToolNeeded id="tool2"/>
+		<Action id="Putting"/>
+	</Task>
+	<Task id="Take switch" Duration="5">
+		<Tray id="Switch tray"/>
+		<Component id="Switch"/>
+		<ToolNeeded id="tool2"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Mount switch in bottom" Duration="15">
+		<Fixture id="Front fixture"/>
+		<Component id="Bottom"/>
+		<Component id="Switch"/>
+		<ComponentCreated id="Bottom-Switch"/>
+		<ToolNeeded id="tool2"/>
+		<Action id="Mounting"/>
+	</Task>
+	<Task id="Take bottom-switch" Duration="0">
+		<Fixture id="Front fixture"/>
+		<Component id="Bottom-Switch"/>
+		<ToolNeeded id="tool2"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Put bottom-switch on table" Duration="5">
+		<Component id="Bottom-Switch"/>
+		<ToolNeeded id="tool2"/>
+		<Action id="Putting"/>
+		<Output id="Output"/>
+	</Task>
+	<Task id="Mount top-button-ring on bottom-switch" Duration="15">
+		<Component id="Top-Button-Ring"/>
+		<Component id="Bottom-Switch"/>
+		<ComponentCreated id="Complete"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+		<Output id="Output"/>
+	</Task>
+
+	<OrderedGroup>
+		<Task id="Angle top-button"/>
+		<Task id="Lift top-button, hold top-button"/>
+		<Task id="Turn top-button"/>
+		<Task id="Mount ring on top-button, hold"/>
+		<Task id="Fixate top-button-ring"/>
+		<Task id="Put top-button-ring in top-tray"/>
+	</OrderedGroup>
+
+	<ConcurrentGroup>
+		<Task id="Lift top-button, hold top-button"/>
+		<Task id="Lift top-button, support"/>
+	</ConcurrentGroup>
+	<ConcurrentGroup>
+		<Task id="Mount ring on top-button, hold"/>
+		<Task id="Mount ring on top-button, mount"/>
+	</ConcurrentGroup>
+
+	<TasksOutOfRange id="m1">
+		<Task id="Take ring"/>
+		<Task id="Take bottom"/>
+		<Task id="Take switch"/>
+	</TasksOutOfRange>
+
+	<TasksOutOfRange id="m2">
+		<Task id="Take top"/>
+		<Task id="Take button"/>
+		<Task id="Put top-button-ring in top-tray"/>
+		<Task id="Take top-button-ring from top-tray"/>
+	</TasksOutOfRange>
+
+
+	<ToolChangeDurations>
+		<Change FromToolId="tool1" ToToolId="tool2" Duration="60"/>
+		<Change FromToolId="tool2" ToToolId="tool1" Duration="60"/>
+	</ToolChangeDurations>
+
+</Assembly>

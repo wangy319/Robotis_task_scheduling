@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly xmlns="http://exjobb18.cs.lth.se"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://exjobb18.cs.lth.se http://exjobb18.cs.lth.se/xml_format_in.xsd">
+
+	<Output id="Output"/>
+
+	<Tray id="top-tray"/>
+	<Tray id="Button tray"/>
+
+	<!--Fixture id="Front fixture"/-->
+
+	<Component id="Top"/>
+	<Component id="Button"/>
+	<Component id="Complete"/>
+
+	<Subcomponents id="Complete">
+		<Component id="Top"/>
+		<Component id="Button"/>
+	</Subcomponents>
+	
+
+	<Tool id="tool1"/>
+	<Tool id="tool2"/>
+
+	<Machine id="m1"/>
+	<Machine id="m2"/>
+
+	<Task id="Take top" Duration="5">
+		<Tray id="top-tray"/>
+		<Component id="Top"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Put top in fixture" Duration="10">
+		<!--Fixture id="Front fixture"/-->
+		<Component id="Top"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Putting"/>
+		<Output id="Output"/>
+	</Task>
+	<Task id="Take button" Duration="5">
+		<Tray id="Button tray"/>
+		<Component id="Button"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Taking"/>
+	</Task>
+	<Task id="Mount button on top" Duration="25">
+		<!--Fixture id="Front fixture"/-->
+		<Component id="Top"/>
+		<Component id="Button"/>
+		<ComponentCreated id="Complete"/>
+		<ToolNeeded id="tool1"/>
+		<Action id="Mounting"/>
+		<Output id="Output"/>
+	</Task>
+
+	<TasksOutOfRange id="m2">
+		<Task id="Take top"/>
+		<Task id="Take button"/>
+	</TasksOutOfRange>
+
+
+	<ToolChangeDurations>
+		<Change FromToolId="tool1" ToToolId="tool2" Duration="60"/>
+		<Change FromToolId="tool2" ToToolId="tool1" Duration="60"/>
+	</ToolChangeDurations>
+
+</Assembly>

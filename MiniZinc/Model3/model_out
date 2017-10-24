@@ -1,0 +1,52 @@
+End = 692
+start duration i usingMachine pred name hasToolChangeBefore
+588 75 0 0 0 Move from 6 to 1
+663 5 1 1 6 Take top-button-ring from top-tray TS bef-1 TU1 succ-3
+447 7 0 0 0 Move from 20 to 2
+454 15 2 1 20 Fixate top-button-ring TS bef-0 TU1 succ-19
+668 9 0 0 0 Move from 1 to 3
+677 15 3 1 1 Mount top-button-ring on bottom-switch TS bef-0 TU1 succ-0
+34 3 0 0 0 Move from 7 to 4
+37 25 4 1 7 Mount button on top TS bef-0 TU1 succ-1
+160 9 0 0 0 Move from 11 to 5
+169 10 5 2 11 Take ring TS bef-0 TU1 succ-22
+581 2 0 0 0 Move from 9 to 6
+583 5 6 1 9 Put bottom-switch on table TS bef-0 TU2 succ-7
+26 3 0 0 0 Move from 17 to 7
+29 5 7 1 17 Take button TS bef-0 TU1 succ-4
+67 0 0 0 0 Move from 21 to 8
+67 5 8 1 21 Angle top-button TS bef-0 TU1 succ-10
+581 0 0 0 0 Move from 14 to 9
+581 0 9 1 14 Take bottom-switch TS bef-0 TU2 succ-6
+72 7 0 0 0 Move from 8 to 10
+155 5 10 1 8 Lift top-button, hold top-button TS bef-0 TU1 succ-13
+82 73 0 0 0 Move from 18 to 11
+155 5 11 2 18 Lift top-button, support TS bef-1 TU1 succ-0
+483 73 0 0 0 Move from 19 to 12
+556 5 12 1 19 Take switch TS bef-1 TU2 succ-14
+160 7 0 0 0 Move from 10 to 13
+167 20 13 1 10 Turn top-button TS bef-0 TU1 succ-20
+561 5 0 0 0 Move from 12 to 14
+566 15 14 1 12 Mount switch in bottom TS bef-0 TU2 succ-9
+0 3 0 0 0 Move from 0 to 15
+3 5 15 1 0 Take top TS bef-0 TU1 succ-17
+0 4 0 0 0 Move from 0 to 16
+4 5 16 2 0 Take bottom TS bef-0 TU2 succ-18
+8 8 0 0 0 Move from 15 to 17
+16 10 17 1 15 Put top in fixture TS bef-0 TU1 succ-12
+9 8 0 0 0 Move from 16 to 18
+72 10 18 2 16 Put bottom in fixture TS bef-0 TU2 succ-5
+469 9 0 0 0 Move from 2 to 19
+478 5 19 1 2 Put top-button-ring in top-tray TS bef-0 TU1 succ-15
+187 0 0 0 0 Move from 13 to 20
+187 260 20 1 13 Mount ring on top-button, hold TS bef-0 TU1 succ-2
+62 0 0 0 0 Move from 4 to 21
+62 5 21 1 4 Take top-button from fixture TS bef-0 TU1 succ-8
+179 7 0 0 0 Move from 5 to 22
+187 260 22 2 5 Mount ring on top-button, mount TS bef-0 TU1 succ-11
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+%
+% 697 choice points explored.
+%
+----------
+

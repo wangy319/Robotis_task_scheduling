@@ -1,0 +1,15 @@
+#LeftPWBTarget;LeftShieldTarget;LeftLCDTarget;LeftAntennaTarget;DCoverTarget;Cam1Target;Cam5Target;Cam3Target;Cam4Target;Cam2Target;Fixture1Target;Fixture2Target;AirgunTarget;OutputTarget
+LeftPWBT;-;-;-;-;-;-;-;-;-;-;-;-;-;-
+LeftShieldTarget;-;-;-;-;-;-;-;-;-;-;-;-;-;-
+LeftLCDTarget;-;-;0;175;225;-;-;115;309;468;321;316;-;483
+LeftAntennaTarget;-;-;196;0;256;-;-;124;237;398;216;220;-;413
+DCoverTarget;-;-;241;256;0;-;-;215;313;350;347;347;-;365
+Cam1Target;-;-;-;-;-;-;-;-;-;-;-;-;-;-
+Cam5Target;-;-;-;-;-;-;-;-;-;-;-;-;-;-
+Cam3Target;-;-;136;165;244;-;-;0;280;426;316;306;-;441
+Cam4Target;-;-;263;110;186;-;-;165;0;357;203;203;-;372
+Cam2Target;-;-;343;186;139;-;-;213;278;0;300;295;-;015
+Fixture1Target;-;-;321;134;266;-;-;229;246;424;0;143;-;148
+Fixture2Target;-;-;328;136;266;-;-;222;244;424;141;0;-;162
+AirgunTarget;-;-;-;-;-;-;-;-;-;-;-;-;-;-
+OutputTarget;-;-;358;201;154;-;-;228;293;15;147;243;-;0
