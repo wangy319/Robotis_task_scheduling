@@ -1,0 +1,60 @@
+<!-- Assembly outline -->
+<!-- All entities, outputs; tasks; trays; fixtures; components; tools; machines, must be defined before used -->
+<!-- All durations are in seconds -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly>
+
+	<Output id="Output"/><!-- Defines an output -->
+
+	<Tray id="top-tray"/><!-- Defines a tray -->
+
+	<Fixture id="Front fixture"/><!-- Defines a fixture -->
+
+	<Component id="Top"/><!-- Defines a component -->
+	<Component id="Button"/>
+	<Component id="Top-Button"/>
+
+	<Subcomponents id="Top-Button"><!-- Defines if a component has subcomponents -->
+		<Component id="Top"/><!-- The subcomponents -->
+		<Component id="Button"/>
+	</Subcomponents>
+
+	<Tool id="tool1"/><!-- Defines a tool -->
+	<Tool id="tool2"/>
+
+	<Machine id="m1"/><!-- Defines a machine -->
+
+	<Task id="Mount button on top" Duration="25"><!-- Defines a task -->
+		<Tray id="top-tray"/><!-- If a tray is used -->
+		<Fixture id="Front fixture"/><!-- If a fixture is used -->
+		<Component id="Top"/><!-- The component is used. Can be multiple -->
+		<Component id="Button"/>
+		<ComponentCreated id="Top-Button"/><!-- If a component is created -->
+		<ToolNeeded id="tool1"/><!-- If a certain tool is needed -->
+		<Action id="Mounting"/><!-- The action performed. The available actions are: mounting, taking, moving, putting -->
+	</Task>
+
+	<OrderedGroup><!-- If a number of tasks need to be performed in an order out of the ordinary -->
+		<Task id="Angle top-button"/>
+		<Task id="Lift top-button, hold top-button"/>
+		<Task id="Turn top-button"/>
+	</OrderedGroup>
+
+	<ConcurrentGroup><!-- If a number of tasks need to be performed simultaneously -->
+		<Task id="Lift top-button, hold top-button"/>
+		<Task id="Lift top-button, support"/>
+	</ConcurrentGroup>
+
+	<TasksOutOfRange id="m1"><!-- Declares which tasks are out of range for a certain machine -->
+		<Task id="Take ring"/>
+		<Task id="Take bottom"/>
+		<Task id="Take switch"/>
+	</TasksOutOfRange>
+
+	<ToolChangeDurations><!-- Time it takes to change from one tool to another -->
+		<Change FromToolId="tool1" ToToolId="tool2" Duration="60"/>
+		<Change FromToolId="tool2" ToToolId="tool1" Duration="60"/>
+	</ToolChangeDurations>
+
+</Assembly>

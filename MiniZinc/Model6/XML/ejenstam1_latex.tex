@@ -1,0 +1,134 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\begin{document}
+\begin{landscape}
+\rowcolors{2}{white}{black!25}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{clcccccccccc}
+i & Name & Duration & Tray & Fixture & Components & \specialcell{Component\\created} & Putting & Mounting & Taking & Moving & \specialcell{Tool\\needed}\\
+\hline
+1&Take PWB&3&5&&3&&&&&&2\\
+2&Take LCD&4&3&&&&&&&&1\\
+3&Take SHIELD&3&4&&6&&&&&&1\\
+4&Take LCD-SHIELD from fixture&4&&1&1&&&&&&1\\
+5&Take ANTENNA&3&1&&7&&&&&&2\\
+6&Take DCOVER&3&4&&2&&&&&&2\\
+7&Take PWB-DCOVER-ANTENNA from fixture&3&&2&8&&&&&&\\
+8&Photo PWB&7&&&3&&&&&&1\\
+9&Photo LCD&3&&&5&&&&&&1\\
+10&Photo SHIELD&3&&&6&&&&&&1\\
+11&Put DCOVER in fixture&8&&2&2&&&&&&2\\
+12&Put SHIELD in fixture&8&&1&6&&&&&&1\\
+13&Tap DCOVER&2&&2&2&&&&&&\\
+14&Tap LCD-SHIELD&2&&1&1&&&&&&\\
+15&Tap PWB-DCOVER-ANTENNA&2&&2&8&&&&&&\\
+16&Tap SHIELD&2&&1&6&&&&&&\\
+17&Tap DCOVER-ANTENNA&2&&2&4&&&&&&\\
+18&Peel1 SHIELD&4&&1&6&&&&&&2\\
+19&Peel2 SHIELD&4&&1&&&&&&&2\\
+20&Mount PWB on DCOVER-ANTENNA&10&&&3,4&8&&&&&1\\
+21&Mount LCD on SHIELD&10&&1&6,5&1&&&&&2\\
+22&Mount ANTENNA on DCOVER&10&&2&7,2&4&&&&&2\\
+23&Blow air on PWB&4&&&3&&&&&&1\\
+24&Put PWB-DCOVER-ANTENNA in output&8&&&8&&&&&&\\
+25&Put LCD-SHIELD in output&8&&&1&&&&&&1\\
+\end{tabular}
+\end{landscape}
+
+\subsubsection*{Trays}
+\begin{enumerate}
+\item tray1
+\item tray3
+\item tray2
+\item tray5
+\item tray4
+\end{enumerate}
+
+\subsubsection*{Fixtures}
+\begin{enumerate}
+\item fixture2
+\item fixture1
+\end{enumerate}
+
+\subsubsection*{Components}
+\begin{enumerate}
+\item lcd-shield
+\item dcover
+\item pwb
+\item dcover-antenna
+\item lcd
+\item shield
+\item antenna
+\item pwb-dcover-antenna
+\end{enumerate}
+
+\subsubsection*{Tools}
+\begin{enumerate}
+\item suction
+\item grip
+\end{enumerate}
+
+\newcommand*\rot{\rotatebox{90}}
+\subsubsection*{Time Matrix}
+\begin{landscape}
+\rowcolors{2}{white}{black!25}
+\begin{tabular}{*{27}{c}}
+& \rot{Take PWB} & \rot{Take LCD} & \rot{Take SHIELD} & \rot{Take LCD-SHIELD from fixture} & \rot{Take ANTENNA} & \rot{Take DCOVER} & \rot{Take PWB-DCOVER-ANTENNA from fixture} & \rot{Photo PWB} & \rot{Photo LCD} & \rot{Photo SHIELD} & \rot{Put DCOVER in fixture} & \rot{Put SHIELD in fixture} & \rot{Tap DCOVER} & \rot{Tap LCD-SHIELD} & \rot{Tap PWB-DCOVER-ANTENNA} & \rot{Tap SHIELD} & \rot{Tap DCOVER-ANTENNA} & \rot{Peel1 SHIELD} & \rot{Peel2 SHIELD} & \rot{Mount PWB on DCOVER-ANTENNA} & \rot{Mount LCD on SHIELD} & \rot{Mount ANTENNA on DCOVER} & \rot{Blow air on PWB} & \rot{Put PWB-DCOVER-ANTENNA in output} & \rot{Put LCD-SHIELD in output} & \rot{Change tool} \\
+\hline
+Start & 1 & 4 & 1 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 2 & 1 & 2 & 1 & 2 & 2 & 1 & 2 & 1 & 1 & 0 & 0 & 0\\
+Take PWB & 0 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 1 & 2 & 2 & 1 & 2 & 1 & 2 & 1 & 2 & 1 & 1 & 2 & 1 & 2 & 2 & 1 & 1 & 0\\
+Take LCD & 1 & 0 & 1 & 3 & 2 & 2 & 3 & 1 & 1 & 2 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 1 & 5 & 5 & 0\\
+Take SHIELD & 1 & 2 & 0 & 1 & 2 & 1 & 2 & 1 & 1 & 2 & 2 & 1 & 2 & 1 & 2 & 1 & 2 & 1 & 1 & 2 & 1 & 2 & 2 & 1 & 1 & 0\\
+Take LCD-SHIELD from fixture & 1 & 3 & 1 & 0 & 0 & 3 & 2 & 1 & 1 & 2 & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 & 0 & 2 & 0 & 2 & 1 & 2 & 2 & 0\\
+Take ANTENNA & 1 & 2 & 1 & 2 & 0 & 3 & 2 & 1 & 1 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 4 & 4 & 0\\
+Take DCOVER & 1 & 2 & 1 & 3 & 3 & 0 & 3 & 1 & 1 & 1 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 1 & 4 & 4 & 0\\
+Take PWB-DCOVER-ANTENNA from fixture & 1 & 3 & 1 & 1 & 2 & 3 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0\\
+Photo PWB & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 1 & 0\\
+Photo LCD & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 1 & 0\\
+Photo SHIELD & 1 & 1 & 1 & 1 & 2 & 1 & 2 & 1 & 1 & 0 & 2 & 1 & 2 & 1 & 2 & 1 & 2 & 1 & 1 & 2 & 1 & 2 & 1 & 1 & 1 & 0\\
+Put DCOVER in fixture & 1 & 3 & 1 & 1 & 2 & 3 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0\\
+Put SHIELD in fixture & 1 & 3 & 1 & 0 & 1 & 3 & 2 & 1 & 1 & 2 & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 & 0 & 2 & 0 & 2 & 1 & 2 & 2 & 0\\
+Tap DCOVER & 1 & 3 & 1 & 1 & 2 & 3 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0\\
+Tap LCD-SHIELD & 1 & 3 & 1 & 0 & 1 & 3 & 2 & 1 & 1 & 2 & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 & 0 & 2 & 0 & 2 & 1 & 2 & 2 & 0\\
+Tap PWB-DCOVER-ANTENNA & 1 & 3 & 1 & 1 & 2 & 3 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0\\
+Tap SHIELD & 1 & 3 & 1 & 0 & 1 & 3 & 2 & 1 & 1 & 2 & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 & 0 & 2 & 0 & 2 & 1 & 2 & 2 & 0\\
+Tap DCOVER-ANTENNA & 1 & 3 & 1 & 1 & 2 & 3 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0\\
+Peel1 SHIELD & 1 & 3 & 1 & 0 & 1 & 3 & 2 & 1 & 1 & 2 & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 & 0 & 2 & 0 & 2 & 1 & 2 & 2 & 0\\
+Peel2 SHIELD & 1 & 3 & 1 & 0 & 1 & 3 & 2 & 1 & 1 & 2 & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 & 0 & 2 & 0 & 2 & 1 & 2 & 2 & 0\\
+Mount PWB on DCOVER-ANTENNA & 1 & 3 & 1 & 1 & 2 & 3 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0\\
+Mount LCD on SHIELD & 1 & 3 & 1 & 0 & 1 & 3 & 2 & 1 & 1 & 2 & 2 & 0 & 2 & 0 & 2 & 0 & 2 & 0 & 0 & 2 & 0 & 2 & 1 & 2 & 2 & 0\\
+Mount ANTENNA on DCOVER & 1 & 3 & 1 & 1 & 1 & 3 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 2 & 1 & 1 & 0\\
+Blow air on PWB & 1 & 1 & 1 & 1 & 2 & 1 & 2 & 2 & 2 & 2 & 2 & 1 & 2 & 1 & 2 & 1 & 2 & 1 & 1 & 2 & 1 & 2 & 0 & 1 & 1 & 0\\
+Put PWB-DCOVER-ANTENNA in output & 1 & 4 & 1 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 2 & 1 & 2 & 1 & 2 & 2 & 1 & 2 & 1 & 1 & 0 & 0 & 0\\
+Put LCD-SHIELD in output & 1 & 4 & 1 & 2 & 2 & 2 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 2 & 1 & 2 & 1 & 2 & 2 & 1 & 2 & 1 & 1 & 0 & 0 & 0\\
+Change tool & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\end{tabular}
+\end{landscape}
+
+\section*{Tasks that needs to be performed in a certain order}
+
+\section*{Sets of concurrent tasks}
+
+\section*{Tools}
+\subsection*{Tool change durations}
+\begin{tabular}{*{4}{l}}
+ &  & \multicolumn{2}{c}{To tools}  \\
+ &  & suction & grip\\
+\multirow{2}{*}{\rot{From tool}} & suction & 0 & 0\\
+ & grip & 0 & 0\\
+\end{tabular}
+\end{document}

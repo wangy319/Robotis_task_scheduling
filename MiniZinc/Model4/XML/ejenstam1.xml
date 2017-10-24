@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly>
+
+	<Cycles nbr="1"/>
+
+	<Tool id="grip"/>
+	<Tool id="suction"/>
+
+	<Component id="dcover"/>
+	<Component id="antenna"/>
+	<Component id="pwb"/>
+	<Component id="shield"/>
+	<Component id="lcd"/>
+	<Component id="lcd-shield"/>
+	<Component id="dcover-antenna-pwb"/>
+
+	<Tray id="tray1"/>
+	<Tray id="tray2"/>
+	<Tray id="tray3"/>
+	<Tray id="tray4"/>
+	<Tray id="tray5"/>
+
+	<Fixture id="fixture1"/>
+
+	<Machine id="m1"/>
+	<Machine id="m2"/>
+
+	<Task id="Pick LCD" Duration="4">
+		<Tray id="tray3"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Pick SHIELD" Duration="3">
+		<Tray id="tray1"/>
+		<Component id="shield"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Photo LCD camera1" Duration="3">
+		<Component id="lcd"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Photo SHIELD Camera3" Duration="3">
+		<Component id="shield"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Place SHIELD" Duration="8">
+		<Fixture id="fixture1"/>
+		<Component id="shield"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Tapp SHIELD in place" Duration=""> <!-- Tapping time not included in data? -->
+		<Component id="shield"/>
+	</Task>
+
+	<Task id="Peel tape1" Duration=""> <!-- Peeling time not included in data? -->
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Peel tape2" Duration=""> <!-- Peeling time not included in data? -->
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Place LCD" Duration=""> <!-- In fixture? Which fixture? -->
+		<Component id="lcd"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Pick PWB" Duration="3">
+		<Tray id="tray2"/>
+		<Component id="pwb"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Photo PWB camera 2" Duration="7">
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Airgun PWB" Duration="4">
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Place PWB" Duration=""> <!-- In fixture? Which fixture? -->
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Pick DCOVER" Duration="3">
+		<Tray id="tray5"/>
+		<Component id="dcover"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Pick ANTENNA" Duration="3">
+		<Tray id="tray4"/>
+		<Component id="antenna"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Photo ANTENNA camera 4" Duration="4">
+		<Component id="antenna"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Place DCOVER" Duration=""> <!-- In fixture? Which fixture? -->
+		<Component id="dcover"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Peel camera tape" Duration=""> <!-- Peeling time not included in data? -->
+		<Component id="camera"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Place ANTENNA" Duration=""> <!-- In fixture? Which fixture? -->
+		<Component id="antenna"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+	<Task id="Tap ANTENNA in place" Duration=""> <!-- Tapping time not included in data? -->
+		<Component id="antenna"/>
+	</Task>
+
+	<Task id="Tap LCD in place" Duration=""> <!-- Tapping time not included in data? -->
+		<Component id="lcd"/>
+	</Task>
+
+	<Task id="Move LCD/SHIELD to output" Duration=""> <!-- From fixture? Which fixture? Time? -->
+		<Component id="lcd-shield"/>
+		<ToolNeeded id="suction"/>
+	</Task>
+
+	<Task id="Tap PWB in place" Duration=""> <!-- Tapping time not included in data? -->
+		<Component id="pwb"/>
+	</Task>
+
+	<Task id="Move DCOVER/ANTENNA/PWB to output" Duration=""> <!-- From fixture? Which fixture? Time? -->
+		<Component id="dcover-antenna-pwb"/>
+		<ToolNeeded id="grip"/>
+	</Task>
+
+
+</Assembly>

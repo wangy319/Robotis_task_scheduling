@@ -1,0 +1,3 @@
+tasks = 11;
+d = [5, 5, 5, 5, 10, 5, 5, 10, 5, 5, 15];
+names = ["Take head", "Take top", "Take rod", "Take body", "Assem. top-body", "Drop top-body", "Take top-body", "Assem. head-rod", "Drop head-rod", "Take head-rod", "Assem. top-body-head-rod"];

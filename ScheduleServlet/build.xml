@@ -1,0 +1,60 @@
+<project name="SheduleServlet" default="all" basedir=".">
+
+	<property name="classpath" location="/usr/share/apache-tomcat/lib/servlet-api.jar" />
+	<tstamp prefix="build-info">
+		<format property="current-date" pattern="d-MMMM-yyyy" locale="en" />
+		<format property="current-time" pattern="hh:mm:ss a z" locale="en" />
+	</tstamp>
+	<property name="builder" value="Tommy Kvant" />
+
+	<target name="all" depends="setup,compile,buildwar,cleanup">
+	</target>
+
+	<target name="setup">
+		<mkdir dir="dist" />
+		<echo>Copying web into dist</echo>
+		<copy todir="dist/web">
+			<fileset dir="web" />
+		</copy>
+	</target>
+
+	<target name="compile">
+		<echo>Compiling</echo>
+		<delete dir="dist/classes" />
+		<mkdir dir="dist/classes" />
+		<javac includeantruntime="false" destdir="dist/classes" srcdir="src">
+			<classpath>
+				<fileset dir="dist/web/WEB-INF/lib">
+					<include name="*" />
+				</fileset>
+				<pathelement path="${classpath}" />
+			</classpath>
+
+		</javac>
+		<copy todir="dist/classes">
+			<fileset dir="src">
+				<include name="**/*.properties" />
+				<include name="**/*.xml" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="buildwar">
+		<war basedir="${basedir}/dist/web" destfile="Scheduler.war" webxml="${basedir}/dist/web/WEB-INF/web.xml">
+			<fileset dir="${basedir}/dist/web">
+				<!-- Need to exclude it since webxml is an attribute of the war tag above -->
+				<exclude name="${basedir}/dist/web/WEB-INF/web.xml" />
+			</fileset>
+			<manifest>
+				<attribute name="Built-By" value="${builder}" />
+				<attribute name="Built-On" value="${build-info.current-date}" />
+				<attribute name="Built-At" value="${build-info.current-time}" />
+			</manifest>
+			<classes dir="${basedir}/dist/classes" />
+		</war>
+	</target>
+
+	<target name="cleanup">
+		<delete dir="dist" />
+	</target>
+</project>

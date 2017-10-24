@@ -1,0 +1,62 @@
+ 
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multirow}
+\begin{document}
+\section*{Model}
+\subsection*{Variables}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{c p{5cm}}
+$tasks$ & The number of tasks to schedule \\
+
+$machines$ & The number of machines available \\
+
+$T = \{1 \ldots tasks\}$ & The tasks \\
+
+$M = \{1 \ldots machines\}$ & The machines \\
+
+$d(task_{i}) \in \{0 \ldots 2^{63}-1\}, \quad task_{i} \in T$ & The duration of task $i$ \\
+
+$s(task_{i}) \in \{0 \ldots 2^{63}-1\}, \quad task_{i} \in T$ & The start time of task $i$ \\
+
+$m(task_{i}) \in M, \quad task_{i} \in T$ & The machine task $i$ uses \\
+
+$dep(task_{i},task_{j}) \in \{0,1\}, \quad task_{i}, task_{j} \in T$ &  The dependency between task $i$ and task $j$. If 1, task $i$ needs to be completed before task $j$ \\
+
+$End = \{0..D\},\quad D = sum(\{d(task_{i})|\forall task_{i} \in T\})$ & Marks the end of the schedule, i.e. makespan. The variable that is minimized.\\
+
+$same\_machine_{k} \subset T$ & Set of tasks needing the same machine\\
+
+$concurrent\_tasks_{k} \subset T$ & Set of tasks needing concurrent execution \\
+
+$occupied_{k} \subset T$ & Set of tasks occupying a machine in the order specified by $dep$\\
+
+$overlap(task_{i}, task_{j}), \quad task_{i},task_{j} \in T$ & $task_{i}$ overlaps $task_{j}$\\
+
+\end{tabular}
+
+\subsection*{Constraints}
+\begin{tabular}{c p{5cm}}
+$End = max(\{s(task_{i})+d(task_{i})|\forall task_{i} \in T\})$ & The end is where the last task ends\\
+
+$task_{i} \prec task_{j}, \quad task_{i},task_{j} \in T \land dep(task_{i},task_{j})=1$ & $task_{i}$ has to preceed $task_{j}$ if specified in $dep$.\\
+
+$overlap(task_{i},task_{j}) \implies m(task_{i}) \neq m(task_{j}),$ & \multirow{2}{5cm}{If $task_{i}$ and $task_{j}$ overlap, they cannot use the same machine.}\\
+$task_{i},task_{j} \in T$ & \\
+
+$m(task_{i}) = m(task_{j}), \quad \forall task_{i},task_{j} \in same\_machine_{k}$ & Every task in a $same\_machine$ set should use the same machine.\\
+
+$s(task_{i}) = s(task_{j}) \land m(task_{i}) \neq m(task_{j}),$ & \multirow{2}{5cm}{Every task in a $concurrent\_tasks$ set should execute at the same time, but they cannot use the same machine.}\\
+$\forall task_{i},task_{j} \in concurrent\_tasks_{k}$ & \\
+&\\
+$m(task_{k}) = m(task_{i}) \implies task_{k} \prec task_{i} \lor task_{k} \succ task_{j},$& \multirow{3}{5cm}{If two tasks are set to occupy a machine following each other, there cannot be another task between them using the same machine.}\\
+$\forall task_{k} \in T, \quad task_{i},task_{j} \in occupied_{k}, \quad dep(task_{i},task_{j}) =1,$&\\
+$ task_{i} \neq task_{k}, \quad task_{j} \neq task_{k}$ &\\
+\end{tabular}
+
+
+\end{document}

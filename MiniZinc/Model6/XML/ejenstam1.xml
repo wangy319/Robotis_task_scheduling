@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Assembly>
+
+	<Cycles nbr="1"/>
+
+	<Output id="output1"/>
+	<Output id="output2"/>
+
+	<Tool id="grip"/>
+	<Tool id="suction"/>
+
+	<Component id="dcover"/>
+	<Component id="antenna"/>
+	<Component id="pwb"/>
+	<Component id="shield"/>
+	<Component id="lcd"/>
+	<Component id="lcd-shield"/>
+	<Component id="dcover-antenna"/>
+	<Component id="pwb-dcover-antenna"/>
+
+	<Subcomponent id="lcd-shield">
+		<Component id="shield"/>
+		<Component id="lcd"/>
+	</Subcomponent>
+	<Subcomponent id="dcover-antenna">
+		<Component id="dcover"/>
+		<Component id="antenna"/>
+	</Subcomponent>
+	<Subcomponent id="pwb-dcover-antenna">
+		<Component id="dcover-antenna"/>
+		<Component id="pwb"/>
+	</Subcomponent>
+
+	<Tray id="tray1"/>
+	<Tray id="tray2"/>
+	<Tray id="tray3"/>
+	<Tray id="tray4"/>
+	<Tray id="tray5"/>
+
+	<Camera id="camera1"/>
+	<Camera id="camera2"/>
+	<Camera id="camera3"/>
+	<Camera id="camera4"/>
+	<Camera id="camera5"/>
+
+	<Fixture id="fixture1"/>
+	<Fixture id="fixture2"/>
+
+	<Machine id="m1"/>
+	<Machine id="m2"/>
+
+	<Task id="Take DCOVER" Duration="3">
+		<Tray id="tray5"/>
+		<Component id="dcover"/>
+		<ToolNeeded id="grip"/>
+		<Action id="taking"/>
+	</Task>
+
+	<Task id="Put DCOVER in fixture" Duration="8">
+		<Component id="dcover"/>
+		<ToolNeeded id="grip"/>
+		<Fixture id="fixture1"/>
+		<Action id="putting"/>
+	</Task>
+
+	<Task id="Tap DCOVER" Duration="2">
+		<Component id="dcover"/>
+		<Fixture id="fixture1"/>
+		<Action id="tapping"/>
+	</Task>
+
+	<Task id="Take PWB" Duration="3">
+		<Tray id="tray4"/>
+		<Component id="pwb"/>
+		<ToolNeeded id="grip"/>
+		<Action id="taking"/>
+	</Task>
+
+	<Task id="Take ANTENNA" Duration="3">
+		<Tray id="tray1"/>
+		<Component id="antenna"/>
+		<ToolNeeded id="grip"/>
+		<Action id="taking"/>
+	</Task>
+
+	<Task id="Photo PWB" Duration="7">
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+		<Camera id="camera1"/>
+		<Action id="photo"/>
+	</Task>
+
+	<Task id="Mount ANTENNA on DCOVER" Duration="10">
+		<Component id="antenna"/>
+		<Component id="dcover"/>
+		<ToolNeeded id="grip"/>
+		<Fixture id="fixture1"/>
+		<Action id="mounting"/>
+		<ComponentCreated id="dcover-antenna"/>
+	</Task>
+
+	<Task id="Blow air on PWB" Duration="4">
+		<Component id="pwb"/>
+		<ToolNeeded id="suction"/>
+		<Action id="spraying"/>
+	</Task>
+
+	<Task id="Tap SHIELD" Duration="2">
+		<Component id="shield"/>
+		<Fixture id="fixture2"/>
+		<Action id="tapping"/>
+	</Task>
+
+	<Task id="Take LCD" Duration="4">
+		<Tray id="tray2"/>
+		<ToolNeeded id="suction"/>
+		<Action id="taking"/>
+	</Task>
+
+	<Task id="Photo LCD" Duration="3">
+		<Component id="lcd"/>
+		<ToolNeeded id="suction"/>
+		<Camera id="camera1"/>
+		<Action id="photo"/>
+	</Task>
+
+	<Task id="Mount PWB on DCOVER-ANTENNA" Duration="10">
+		<Component id="pwb"/>
+		<Component id="dcover-antenna"/>
+		<ToolNeeded id="suction"/>
+		<Action id="mounting"/>
+		<ComponentCreated id="pwb-dcover-antenna"/>
+	</Task>
+
+	<Task id="Peel1 SHIELD" Duration="4">
+		<Component id="shield"/>
+		<ToolNeeded id="grip"/>
+		<Fixture id="fixture2"/>
+		<Action id="peeling"/>
+	</Task>
+
+	<Task id="Mount LCD on SHIELD" Duration="10">
+		<Component id="shield"/>
+		<Component id="lcd"/>
+		<ToolNeeded id="grip"/>
+		<Fixture id="fixture2"/>
+		<Action id="mounting"/>
+		<ComponentCreated id="lcd-shield"/>
+	</Task>
+
+	<Task id="Tap LCD-SHIELD" Duration="2">
+		<Component id="lcd-shield"/>
+		<Fixture id="fixture2"/>
+		<Action id="tapping"/>
+	</Task>
+
+	<Task id="Take PWB-DCOVER-ANTENNA from fixture" Duration="3">
+		<Component id="pwb-dcover-antenna"/>
+		<Fixture id="fixture1"/>
+		<Action id="taking"/>
+	</Task>
+
+	<Task id="Put PWB-DCOVER-ANTENNA in output" Duration="8">
+		<Component id="pwb-dcover-antenna"/>
+		<Output id="output1"/>
+		<Action id="putting"/>
+	</Task>
+
+	<Task id="Take SHIELD" Duration="3">
+		<Tray id="tray5"/>
+		<Component id="shield"/>
+		<ToolNeeded id="suction"/>
+		<Action id="taking"/>
+	</Task>
+
+	<Task id="Photo SHIELD" Duration="3">
+		<Component id="shield"/>
+		<ToolNeeded id="suction"/>
+		<Camera id="camera5"/>
+		<Action id="photo"/>
+	</Task>
+
+	<Task id="Put SHIELD in fixture" Duration="8">
+		<Fixture id="fixture2"/>
+		<Component id="shield"/>
+		<ToolNeeded id="suction"/>
+		<Action id="putting"/>
+	</Task>
+
+	<Task id="Peel2 SHIELD" Duration="4">
+		<ToolNeeded id="grip"/>
+		<Fixture id="fixture2"/>
+		<Action id="peeling"/>
+	</Task>
+
+	<Task id="Tap DCOVER-ANTENNA" Duration="2">
+		<Component id="dcover-antenna"/>
+		<Fixture id="fixture1"/>
+		<Action id="tapping"/>
+	</Task>
+
+	<Task id="Tap PWB-DCOVER-ANTENNA" Duration="2">
+		<Component id="pwb-dcover-antenna"/>
+		<Fixture id="fixture1"/>
+		<Action id="tapping"/>
+	</Task>
+
+	<Task id="Take LCD-SHIELD from fixture" Duration="4">
+		<Component id="lcd-shield"/>
+		<Fixture id="fixture2"/>
+		<ToolNeeded id="suction"/>
+		<Action id="taking"/>
+	</Task>
+
+	<Task id="Put LCD-SHIELD in output" Duration="8">
+		<Component id="lcd-shield"/>
+		<ToolNeeded id="suction"/>
+		<Output id="output2"/>
+		<Action id="putting"/>
+	</Task>
+
+</Assembly>

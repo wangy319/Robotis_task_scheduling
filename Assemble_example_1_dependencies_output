@@ -1,0 +1,88 @@
+End = 112
+0 1 Move to take top 1
+1 1 Take top 1
+2 1 Move top to fixture 1
+3 2 Put top in fixture 1
+5 1 Move to button 1
+6 1 Take button 1
+7 1 Move button to top 1
+8 5 Put button in top 1
+13 1 Angle top-button 1
+14 1 Move to support top-button 2
+15 1 Lift top-button, hold top-button 1
+15 1 Lift top-button, support 2
+16 4 Turn top-button 1
+16 2 Move to take ring 2
+18 2 Take ring 2
+20 1 Move ring to top-button 2
+21 52 Mount ring on top-button 2
+73 3 Move to fixate top-button 1
+76 3 Fixate top-button 1
+79 3 Move top-button to fixture 1
+82 1 Put top-button in fixture 1
+73 6 Move to change tool 2
+79 12 Change to base-grabber tool 2
+106 1 Move to take top-button 1
+107 1 Take top-button 1
+91 2 Move to take base 1
+93 1 Take base 1
+94 1 Move base to fixture 1
+95 2 Put base in fixture 1
+97 1 Move to take square 1
+98 1 Take square 1
+99 1 Move square to base 1
+100 3 Mount square in base 1
+104 0 Take base-square 1
+105 1 Move base-square to table 1
+108 1 Move top-button to base-square 1
+109 3 Put top-button on base-square 1
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+%
+% 31 choice points explored.
+%
+----------
+End = 107
+0 1 Move to take top 2
+1 1 Take top 2
+2 1 Move top to fixture 2
+3 2 Put top in fixture 2
+0 1 Move to button 1
+1 1 Take button 1
+3 1 Move button to top 1
+5 5 Put button in top 1
+10 1 Angle top-button 1
+11 1 Move to support top-button 2
+12 1 Lift top-button, hold top-button 1
+12 1 Lift top-button, support 2
+13 4 Turn top-button 1
+13 2 Move to take ring 2
+15 2 Take ring 2
+17 1 Move ring to top-button 2
+18 52 Mount ring on top-button 2
+70 3 Move to fixate top-button 1
+73 3 Fixate top-button 1
+76 3 Move top-button to fixture 1
+79 1 Put top-button in fixture 1
+70 6 Move to change tool 2
+76 12 Change to base-grabber tool 2
+80 1 Move to take top-button 1
+81 1 Take top-button 1
+88 2 Move to take base 2
+90 1 Take base 2
+91 1 Move base to fixture 2
+92 2 Put base in fixture 2
+94 1 Move to take square 2
+95 1 Take square 2
+96 1 Move square to base 2
+97 3 Mount square in base 2
+101 0 Take base-square 2
+102 1 Move base-square to table 2
+103 1 Move top-button to base-square 1
+104 3 Put top-button on base-square 1
+[2, 2, 2, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1]
+%
+% 57 choice points explored.
+%
+----------
+==========
+

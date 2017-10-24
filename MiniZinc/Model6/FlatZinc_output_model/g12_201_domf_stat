@@ -1,0 +1,25 @@
+Statistics for g12_201_domf.fzn
+----------- Variables -----------
+Number of integer variables: 270
+Number of boolean variables: 106
+Total number of variables: 376
+Number of arrays: 51
+----------- Constraints -----------
+	array_bool_or: 43
+	int_lin_eq_reif: 33
+	bool_clause: 9
+	int_ne_reif: 10
+	int_eq: 50
+	int_lin_eq: 86
+	int_abs: 23
+	int_lin_ne: 4
+	int_lin_le: 168
+	array_var_int_element: 40
+	g12fd_int_all_different: 2
+	int_eq_reif: 43
+	int_ne: 13
+	set_in_reif: 9
+	array_int_element: 21
+	g12fd_cumulative: 8
+Total number of constraints: 562
+Of which are reified: 16.9%
