@@ -1,4 +1,0 @@
- 
-To run use: 
-
-java -cp AssemblyConv.jar console.Console time_matrix_small_test.csv xml_in_small_test.xml

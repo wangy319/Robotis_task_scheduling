@@ -1,3 +1,0 @@
-#!/bin/sh
-
-FLATZINC_CMD=/home/tommy/minizinc-1.6/bin/flatzinc /home/tommy/minizinc-1.6/bin/minizinc -G g12_fd "$@"

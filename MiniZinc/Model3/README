@@ -1,1 +1,0 @@
-Same as Model2, but defines tool changes as part of the move between two tasks. If two tasks, which of one is predecessor to the other, uses the same tool, no change will happen. If they don't, a change will happen. 

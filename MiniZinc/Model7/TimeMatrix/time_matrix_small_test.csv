@@ -1,7 +1,0 @@
-;Take top;Put top in fixture;Take button;Mount button on top;Change tool
-Start;1;2;1;2;3
-Take top;0;1;4;1;4
-Put top in fixture;1;0;1;1;2
-Take button;1;2;0;3;3
-Mount button on top;1;2;3;0;1
-Change tool;4;2;3;2;0
